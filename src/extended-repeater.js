@@ -23,7 +23,7 @@ function repeater(str, options) {
     additionSeparator: "|",
     additionRepeatTimes: 1,
   };
-  options = Object.assign(defaultOptions, options);
+  options = { ...defaultOptions, ...options };
 
   let repeatItems = [];
   for (let i = 1; i <= options.repeatTimes; i++) {
@@ -38,16 +38,6 @@ function repeater(str, options) {
 
   return repeatItems.join(String(options.separator));
 }
-
-console.log(
-  repeater("STRING", {
-    repeatTimes: 3,
-    separator: "**",
-    addition: "PLUS",
-    additionRepeatTimes: 3,
-    additionSeparator: "00",
-  })
-);
 
 module.exports = {
   repeater,
